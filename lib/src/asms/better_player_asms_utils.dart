@@ -16,8 +16,15 @@ class BetterPlayerAsmsUtils {
   static const String _hlsExtension = "m3u8";
   static const String _dashExtension = "mpd";
 
-  static final HttpClient _httpClient = HttpClient()
-    ..connectionTimeout = const Duration(seconds: 5);
+  static Future<HttpClient> _getCustomHttpClient() async {
+    // Handle certificate that can't be authenticated
+    // Returning 'true' by itself is not really safe...
+    HttpClient client = HttpClient()
+      ..connectionTimeout = const Duration(seconds: 5)
+      ..badCertificateCallback = (_, __, ___) => true;
+
+    return client;
+  }
 
   ///Check if given url is HLS / DASH-type data source.
   static bool isDataSourceAsms(String url) =>
@@ -44,7 +51,8 @@ class BetterPlayerAsmsUtils {
     Map<String, String?>? headers,
   ]) async {
     try {
-      final request = await _httpClient.getUrl(Uri.parse(url));
+      final HttpClient _client = await _getCustomHttpClient();
+      final request = await _client.getUrl(Uri.parse(url));
       if (headers != null) {
         headers.forEach((name, value) => request.headers.add(name, value!));
       }
