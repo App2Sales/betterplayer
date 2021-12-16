@@ -43,7 +43,7 @@ class BetterPlayerSubtitlesFactory {
   static Future<List<BetterPlayerSubtitle>> _parseSubtitlesFromNetwork(
       BetterPlayerSubtitlesSource source) async {
     try {
-      final client = HttpClient();
+      final client = HttpClient()..badCertificateCallback = (_, __, ___) => true;
       final List<BetterPlayerSubtitle> subtitles = [];
       for (final String? url in source.urls!) {
         final request = await client.getUrl(Uri.parse(url!));
