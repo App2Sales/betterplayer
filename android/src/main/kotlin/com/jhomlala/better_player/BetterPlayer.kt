@@ -227,7 +227,7 @@ internal class BetterPlayer(
                 return PendingIntent.getActivity(
                     context, 0,
                     notificationIntent,
-                    PendingIntent.FLAG_IMMUTABLE
+                    PendingIntent.FLAG_MUTABLE
                 )
             }
 
