@@ -49,7 +49,7 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.0"
+    version: "0.17.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -104,14 +104,14 @@ packages:
       name: flutter_widget_from_html_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5+1"
+    version: "0.8.5+3"
   fwfh_text_style:
     dependency: transitive
     description:
       name: fwfh_text_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.2"
+    version: "2.22.08"
   html:
     dependency: transitive
     description:
