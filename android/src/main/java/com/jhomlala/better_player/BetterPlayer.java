@@ -252,7 +252,7 @@ final class BetterPlayer {
                 notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                         | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 return PendingIntent.getActivity(context, 0,
-                        notificationIntent, 0);
+                        notificationIntent, PendingIntent.FLAG_MUTABLE);
             }
 
             @Nullable
