@@ -217,6 +217,19 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
+  Future<bool?> isExternalPlaybackActive() async {
+    try {
+      print('Teste');
+      final bool? isActive = await _channel.invokeMethod<bool>(
+        'externalPlaybackActive',
+      );
+      return isActive;
+    }catch(e){
+      print(e);
+    }
+  }
+
+  @override
   Future<DateTime?> getAbsolutePosition(int? textureId) async {
     final int milliseconds = await _channel.invokeMethod<int>(
           'absolutePosition',

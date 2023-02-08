@@ -137,6 +137,10 @@ abstract class VideoPlayerPlatform {
     throw UnimplementedError('getPosition() has not been implemented.');
   }
 
+  Future<bool?> isExternalPlaybackActive() {
+    throw UnimplementedError('externalPlaybackActive has not been implemented.');
+  }
+
   /// Gets the video position as [DateTime].
   Future<DateTime?> getAbsolutePosition(int? textureId) {
     throw UnimplementedError('getAbsolutePosition() has not been implemented.');

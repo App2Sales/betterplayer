@@ -714,6 +714,10 @@ static inline CGFloat radiansToDegrees(CGFloat radians) {
   }
 }
 
+- (BOOL)externalPlaybackActive {
+    return _player.externalPlaybackActive;
+}
+
 
 #endif
 
