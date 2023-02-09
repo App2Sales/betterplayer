@@ -715,7 +715,18 @@ static inline CGFloat radiansToDegrees(CGFloat radians) {
 }
 
 - (BOOL)externalPlaybackActive {
-    return _player.externalPlaybackActive;
+    return [_player isExternalPlaybackActive];
+}
+
+- (BOOL)isAirplayOn
+{
+    AVAudioSession* audioSession = [AVAudioSession sharedInstance];
+    AVAudioSessionRouteDescription* currentRoute = audioSession.currentRoute;
+    for (AVAudioSessionPortDescription* outputPort in currentRoute.outputs){
+        if ([outputPort.portType isEqualToString:AVAudioSessionPortAirPlay])
+            return YES;
+    }
+    return NO;
 }
 
 

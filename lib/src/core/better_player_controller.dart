@@ -1013,11 +1013,12 @@ class BetterPlayerController {
     return _overriddenAspectRatio ?? betterPlayerConfiguration.aspectRatio;
   }
 
-  ///Get aspect ratio used in current video. If aspect ratio is null, then
-  ///aspect ratio from BetterPlayerConfiguration will be used. Otherwise
-  ///[_overriddenAspectRatio] will be used.
   Future<bool?> isExternalPlaybackActive() async {
     return videoPlayerController?.isExternalPlaybackActive();
+  }
+
+  Future<bool?> isAirplayOn() async {
+    return videoPlayerController?.isAirplayOn();
   }
 
   ///Enable Picture in Picture (PiP) mode. [betterPlayerGlobalKey] is required

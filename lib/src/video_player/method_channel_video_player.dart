@@ -219,9 +219,20 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
   @override
   Future<bool?> isExternalPlaybackActive() async {
     try {
-      print('Teste');
       final bool? isActive = await _channel.invokeMethod<bool>(
         'externalPlaybackActive',
+      );
+      return isActive;
+    }catch(e){
+      print(e);
+    }
+  }
+
+  @override
+  Future<bool?> isAirplayOn() async {
+    try {
+      final bool? isActive = await _channel.invokeMethod<bool>(
+        'isAirplayOn',
       );
       return isActive;
     }catch(e){

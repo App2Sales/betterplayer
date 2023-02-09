@@ -417,6 +417,8 @@ bool _remoteCommandsInitialized = false;
             [player setMixWithOthers:[argsMap[@"mixWithOthers"] boolValue]];
         } else if ([@"externalPlaybackActive" isEqualToString:call.method]){
             result(@([player externalPlaybackActive]));
+        } else if ([@"isAirplayOn" isEqualToString:call.method]){
+            result(@([player isAirplayOn]));
         } else if ([@"clearCache" isEqualToString:call.method]){
             [KTVHTTPCache cacheDeleteAllCaches];
         } else {
