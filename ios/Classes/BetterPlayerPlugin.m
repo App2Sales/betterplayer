@@ -422,8 +422,11 @@ bool _remoteCommandsInitialized = false;
                 bool isActive = playerTemp.externalPlaybackActive;
                 if(isActive == true){
                     result([NSNumber numberWithBool:true]);
+                    return;
                 }
             }
+            result([NSNumber numberWithBool:false]);
+            
         } else if ([@"clearCache" isEqualToString:call.method]){
             [KTVHTTPCache cacheDeleteAllCaches];
         } else {
