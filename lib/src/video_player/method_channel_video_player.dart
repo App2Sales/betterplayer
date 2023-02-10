@@ -229,18 +229,6 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
-  Future<bool?> isAirplayOn() async {
-    try {
-      final bool? isActive = await _channel.invokeMethod<bool>(
-        'isAirplayOn',
-      );
-      return isActive;
-    }catch(e){
-      print(e);
-    }
-  }
-
-  @override
   Future<DateTime?> getAbsolutePosition(int? textureId) async {
     final int milliseconds = await _channel.invokeMethod<int>(
           'absolutePosition',

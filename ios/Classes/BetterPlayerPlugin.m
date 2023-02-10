@@ -416,9 +416,14 @@ bool _remoteCommandsInitialized = false;
         } else if ([@"setMixWithOthers" isEqualToString:call.method]){
             [player setMixWithOthers:[argsMap[@"mixWithOthers"] boolValue]];
         } else if ([@"externalPlaybackActive" isEqualToString:call.method]){
-            result(@([player externalPlaybackActive]));
-        } else if ([@"isAirplayOn" isEqualToString:call.method]){
-            result(@([player isAirplayOn]));
+            
+            for (NSNumber* textureId in _players.allKeys) {
+                BetterPlayer* playerTemp = _players[textureId];
+                bool isActive = playerTemp.externalPlaybackActive;
+                if(isActive == true){
+                    result([NSNumber numberWithBool:true]);
+                }
+            }
         } else if ([@"clearCache" isEqualToString:call.method]){
             [KTVHTTPCache cacheDeleteAllCaches];
         } else {

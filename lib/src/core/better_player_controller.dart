@@ -1017,10 +1017,6 @@ class BetterPlayerController {
     return videoPlayerController?.isExternalPlaybackActive();
   }
 
-  Future<bool?> isAirplayOn() async {
-    return videoPlayerController?.isAirplayOn();
-  }
-
   ///Enable Picture in Picture (PiP) mode. [betterPlayerGlobalKey] is required
   ///to open PiP mode in iOS. When device is not supported, PiP mode won't be
   ///open.
